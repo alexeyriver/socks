@@ -16,9 +16,10 @@ router.get('/signup', (req, res) => {
 
 router.post('/signup', async (req, res) => {
   const { name, email, password } = req.body
-  console.log(name, email, password);
+  console.log(name, email, password ,'19');
   const userCheck =await User.find({email:email})
-  if(!userCheck){
+  console.log(userCheck, '21signup')
+  if(!userCheck.length){
       const salt = bcrypt.genSaltSync(10)
   const hashPassword = bcrypt.hashSync(password, salt)
   const user = new User({
@@ -28,9 +29,14 @@ router.post('/signup', async (req, res) => {
   })
   res.locals.login = true;
   req.session.name = name
+  req.session.email = email // ???
+
   await user.save()
   console.log(req.session);
-
+  // res.status(201).json({
+  //     success: true,
+  //     message: 'User done'
+  //   })
   res.render('index')
   }
   else res.send('такой пользователь уже есть')

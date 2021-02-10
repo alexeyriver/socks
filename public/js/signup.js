@@ -2,7 +2,7 @@ const form = document.querySelector('.signup')
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
-    const name = e.target.username.value
+    const name = e.target.name.value
     const email = e.target.email.value
     const password = e.target.password.value
     const { action, method } = e.target
@@ -10,7 +10,7 @@ form.addEventListener('submit', async (e) => {
     const body = {
         name, email, password
     }
-
+console.log(name,email,password,action,method)
     const response = await fetch(action, {
         method,
         headers: {
