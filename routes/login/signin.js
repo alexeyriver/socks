@@ -22,7 +22,7 @@ router.post('/signin', (req, res) => {
 
   const candidate = await User.findOne({email})
   if(candidate) {
-    if(bcrypt,bcrypt.compareSync(password, candidate.password)) {
+    if(bcrypt.compareSync(password, candidate.password)) {
         req.session.user = candidate.name // ???
         res.status(200).json({
             success: true,
