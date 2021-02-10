@@ -29,6 +29,8 @@ router.post('/signup', async (req, res) => {
   })
   res.locals.login = true;
   req.session.name = name
+  req.session.email = email // ???
+
   await user.save()
   console.log(req.session);
   // res.status(201).json({
