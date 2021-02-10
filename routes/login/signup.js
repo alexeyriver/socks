@@ -1,10 +1,10 @@
 const router = require('express').Router()
 const bcrypt = require('bcrypt')
-const User = require('../models/user') 
+const User = require('../../models/users')
 
 // registartion
 
-router.get('/signup',(req,res)=>{
+router.get('/signup', (req, res) => {
 
   /////  регистрация пользователя
   //// проверка имени пользователя на уникальность
@@ -16,21 +16,30 @@ router.get('/signup',(req,res)=>{
 
 router.post('/signup', async (req, res) => {
   const { name, email, password } = req.body
-  const salt = bcrypt.genSaltSync(10)
-  const hashPassword = bcrypt.hashSync(password, salt) 
+  console.log(name, email, password);
+  const userCheck =await User.find({email:email})
+  if(!userCheck){
+      const salt = bcrypt.genSaltSync(10)
+  const hashPassword = bcrypt.hashSync(password, salt)
   const user = new User({
     name,
     email,
     password: hashPassword
   })
-
+  res.locals.login = true;
   req.session.name = name
   await user.save()
+  console.log(req.session);
 
-  res.status(201).json({
-    success: true,
-    message: 'User done'
-})
+  res.render('index')
+  }
+  else res.send('такой пользователь уже есть')
+
+  // res.status(201).json({
+  //   success: true,
+  //   message: 'User done'
+  // })
+
 })
 
 

@@ -1,5 +1,5 @@
 ///users model
-
+const mongoose = require("mongoose");
 const { Types } = require("mongoose");
 
 const User = mongoose.model('users', {
