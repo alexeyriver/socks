@@ -2,7 +2,17 @@
 const router = require('express').Router()
 
 router.get('/',(req,res)=>{
-  //res.send('hey its main')
+  
+  ///// проверка на сессию 
+  //// если она есть,
+  ///// рендерим индекс 
+  ///// если сессии нет,
+  ////  редирект на (/login/signin)
+
+
+
+
+
   res.render('index')
 })
 
