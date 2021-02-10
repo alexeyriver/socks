@@ -1,0 +1,22 @@
+<div>
+  <p>Вы выбрали носки {{color}} цвета </p>
+  <p>
+    <img src="{{pic.url}}" alt="{{pic.name}}">
+  </p>
+  <p>
+    <img src="{{pattern.url}}" alt="{{pattern.name}}">
+  </p>
+</div>
+
+
+<form action="/generator/favourite" method="POST">
+  <button type="submit">Добавить в избранное</button>
+</form>
+
+<form action="/generator/box" method="POST">
+  <button type="submit">Добавить в корзину</button>
+</form>
+
+<form action="/generator/skip" method="POST">
+  <button type="submit">Начать заново</button>
+</form>
