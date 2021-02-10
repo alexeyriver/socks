@@ -17,16 +17,16 @@ router.get('/signin', (req, res) => {
 })
 
 
-router.post('/signin',async (req, res) => {
+router.post('/signin', async (req, res) => {
   const { email, password } = req.body
-console.log(email,password);
-  const candidate = await User.findOne({email: email })
+  console.log(email, password);
+  const candidate = await User.findOne({ email: email })
   if (candidate) {
-    if ( bcrypt.compareSync(password, candidate.password)) {
-     
+    if (bcrypt.compareSync(password, candidate.password)) {
+
       res.locals.login = true;
       req.session.name = candidate.name // ???
-res.render('index')
+      res.render('index')
       // res.status(200).json({
       //   success: true,
       //   message: 'User in'
