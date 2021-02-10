@@ -11,8 +11,8 @@ module.exports = function (app) {
   mongoose.connect('mongodb://localhost:27017/socks', { useNewUrlParser: true, useUnifiedTopology: true });
 
   app.set('view engine', 'hbs')
-  app.set('views', path.join(__dirname, '..', 'views'))   ///????
-
+  app.set('views', path.join(__dirname, '..', 'views'))   
+  app.set(hbs.registerPartials(path.join(__dirname,'../views/partials')));
   app.use(express.urlencoded({ extended: true }))
   app.use(express.json())
   app.use(express.static(path.join(__dirname, '..', 'public')))
