@@ -1,3 +1,12 @@
 <h1>nav panel
   тут должен быть Signin Signup favourites box 
 </h1>
+<nav>
+    {{#if login}}
+    <a href="login/logout">LogOut</a>
+    {{else}}
+    <a href="login/signin">SignIn</a>
+    <a href="login/signUp">SignUp</a>
+    {{/if}}
+    <a href="/cookie">Cookie</a>
+</nav>
