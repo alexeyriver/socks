@@ -23,7 +23,24 @@ parag.forEach((el) => {
     div.innerHTML = template(frontResp.pic)
 
 /// pic addevent
+let parag = document.querySelectorAll('p')
+parag.forEach((el) => {
+  el.addEventListener('click', async (e) => {
+    console.log(e.target.alt)
 
+    const response = await fetch('http://localhost:3000/generator/img', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'Application/json'
+      },
+      body: JSON.stringify({imgName: e.target.alt })
+    })
+    const frontResp = await response.json()
+
+      console.log(frontResp)
+  })
+
+})
 
 
   })

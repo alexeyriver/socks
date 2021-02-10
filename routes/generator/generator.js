@@ -15,14 +15,31 @@ router.post('/', async (req, res) => {
   console.log(req.body);
   console.log(req.session.email, '<<<generator 11')
   let user = await User.find({ email: req.session.email })
-  console.log(user[0])
+  //  console.log(user[0])
   let sock = await new Socks({ color: req.body.colorName, author: user[0] })
   await sock.save()
-  const base = await BaseSock.find()  
+  const base = await BaseSock.find()
   res.json(base[0])
 })
 
+router.post('/img', async (req, res) => {
+  console.log(req.body);
+  console.log(req.session.email, '<<<generator 11')
+  let user = await User.find({ email: req.session.email })
+ // console.log(user[0])
 
+  let sock = await Socks.find({ author: user[0] })
+  //console.log(sock[0]);
+  const base = await BaseSock.find()
+  let pictures = base[0].pic;
+  console.log(pictures)
+ let target =  pictures.filter((el) => {return el.name == req.body.imgName })
+console.log(target[0]);
+   sock[0].pic = {name: target[0].name, url:target[0].url }
+   await sock[0].save()
+  // const base = await BaseSock.find()  
+   res.json(sock[0])
+})
 
 
 module.exports = router
