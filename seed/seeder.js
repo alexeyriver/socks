@@ -10,6 +10,7 @@ mongoose.connect('mongodb://localhost:27017/socks', {
 
 
 
+
 // color black, red, blue, green
 
 // pic art https://lh6.ggpht.com/HlgucZ0ylJAfZgusynnUwxNIgIp5htNhShF559x3dRXiuy_UdP3UQVLYW6c=s1200
