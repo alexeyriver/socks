@@ -2,17 +2,9 @@ const router = require('express').Router()
 const bcrypt = require('bcrypt')
 const User = require('../../models/users')
 
-// registartion
-
 router.get('/signup', (req, res) => {
-
-  /////  регистрация пользователя
-  //// проверка имени пользователя на уникальность
-  //// 
-  ///// редирект на мэйн
   res.render('signup')
 })
-
 
 router.post('/signup', async (req, res) => {
   const { name, email, password } = req.body
@@ -50,7 +42,6 @@ router.post('/signup', async (req, res) => {
   // })
 
 })
-
 
 
 module.exports = router
