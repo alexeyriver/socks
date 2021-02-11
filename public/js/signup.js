@@ -1,4 +1,5 @@
 const form = document.querySelector('.signup')
+console.log('signup');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -19,7 +20,17 @@ console.log(name,email,password,action,method)
         body: JSON.stringify(body)
     })
     const result = await response.json()
-    if(result.success){
-        window.location = '/'
+    if(!result.success){
+      console.log('invalid');
+      const resphbs = await fetch('/template/login/invaliduseremail.hbs');
+      const hbs = await resphbs.text();
+      const template = Handlebars.compile(hbs);
+      let div = document.querySelector('div')
+      // div.appendChild(template())
+       div.innerHTML += template()
+      
+    }
+    else if (result.success){
+      window.location = '/'
     }
 })

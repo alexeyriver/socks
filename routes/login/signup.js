@@ -33,14 +33,17 @@ router.post('/signup', async (req, res) => {
 
   await user.save()
   console.log(req.session);
-  // res.status(201).json({
-  //     success: true,
-  //     message: 'User done'
-  //   })
-  res.render('index')
+  res.json({
+      success: true,
+      message: 'User done'
+    })
+ // res.render('index')
+// res.redirect('/')
   }
-  else res.send('такой пользователь уже есть')
-
+  else res.json({
+    success: false,
+    message: 'Email already use'
+  })
   // res.status(201).json({
   //   success: true,
   //   message: 'User done'
