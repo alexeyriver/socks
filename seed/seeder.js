@@ -61,6 +61,6 @@ async function createBaseSocks() {
   mongoose.connection.close()
 }
 
- //    createBaseSocks()
+    createBaseSocks()
 
 // seeder for base socks
