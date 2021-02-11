@@ -1,3 +1,4 @@
+// top:
 const form = document.querySelector('.signup')
 console.log('signup');
 
@@ -27,8 +28,10 @@ console.log(name,email,password,action,method)
       const template = Handlebars.compile(hbs);
       let div = document.querySelector('div')
       // div.appendChild(template())
-       div.innerHTML += template()
-      
+      let temp = template()
+      if (div.innerHTML.match(temp)==null)
+      { div.append(temp) }
+     // continue top;
     }
     else if (result.success){
       window.location = '/'

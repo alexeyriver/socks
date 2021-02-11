@@ -1,9 +1,6 @@
-let a =0
-let b=0
 let foo = function () {
 
   const form = document.querySelector('.signin')
-
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
     const email = e.target.email.value
@@ -22,31 +19,45 @@ let foo = function () {
     const result = await response.json()
     console.log(result);
     if (!result.success) {
-    
-        const resphbs = await fetch('/template/login/invaliddata.hbs');
+      const resphbs = await fetch('/template/login/invaliddata.hbs');
       const hbs = await resphbs.text();
       const template = Handlebars.compile(hbs);
       let div = document.querySelector('div')
-      div.innerHTML += template()
-
+      let temp = template()
+      let parag = document.createElement('p')
+      parag.className = 'invaliddata'
+      let invalidpass = document.querySelector('.invalidpass')
+      let invaliddata = document.querySelector('.invaliddata')
+      parag.innerHTML = temp
+      console.log(div.childNodes)
+      if (!invalidpass && !invaliddata)    // `Неверный Логин или пароль`
+      { div.appendChild(parag) }
+      else if (invalidpass) {
+        invalidpass.remove()
+        div.append(parag)
+      }
     }
     else if (result.success == 'invalid') {
-
       const resphbs2 = await fetch('/template/login/invalidpass.hbs');
       const hbs2 = await resphbs2.text();
       const template2 = Handlebars.compile(hbs2);
       let div = document.querySelector('div')
-      div.innerHTML += template2()
-
-  
+      let temp2 = template2()
+      let parag2 = document.createElement('p')
+      parag2.className = 'invalidpass'
+      parag2.innerHTML = temp2
+      let invalidpass = document.querySelector('.invalidpass')
+      let invaliddata = document.querySelector('.invaliddata')
+      console.log(invalidpass)
+      console.log(invaliddata)
+      if (!invalidpass && !invaliddata) { div.append(parag2) }
+      else if (invaliddata) {
+        invaliddata.remove()
+        div.append(parag2)
+      }
     }
     else if (result.success) { window.location = '/' }
   })
-
-
-
-
-
 }
 
 foo()

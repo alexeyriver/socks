@@ -1,21 +1,24 @@
-{{!-- <div class="container">
-    <ul>
-        {{#each box}}
-        <li>Color</li>
-        <li>Pic</li>
-        <li>Pattern</li>
-        <a href="{{this._id}}">Поделиться ссылкой</a>
-        {{/each}}
-    </ul>
-</div> --}}
 
-<div class="card" style="width: 18rem;">
-  <ul class="list-group list-group-flush">
-    {{#each box}}
-    <li class="list-group-item">Color</li>
-    <li class="list-group-item">Pic</li>
-    <li class="list-group-item">Pattern</li>
-    <a href="{{this._id}}">Поделиться ссылкой</a>
-    {{/each}}
-  </ul>
+
+
+ {{#each box }}
+ <div class="{{_id}}">
+    <li class="list-group-item">{{item.color}} </li>
+    <li class="list-group-item">
+     <img src="{{item.pic.url}}" alt="{{item.pic.name}}">
+      </li>
+    <li class="list-group-item">
+      <img src="{{item.pattern.url}}" alt="{{item.pattern.name}}">
+    </li>
+   <p class = 'amount'>
+<button class="less"  id ='{{_id}}-' type="click">-</button>
+ <h3 class="count"> {{amount}} Количество</h3>
+<button class="plus" id ='{{_id}}+' type="click">+</button>
+
+<button class='delete' id ='{{_id}}' type="click">Удалить</button>
+</p> 
 </div>
+    {{/each}}
+
+
+<script src="/js/box.js"></script>
