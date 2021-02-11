@@ -1,0 +1,30 @@
+
+
+<p>{{user.name}} , Ваш Заказ:</p>
+
+{{#each user.box }}
+<div class="{{_id}}">
+    <li class="list-group-item">{{item.color}} </li>
+    <li class="list-group-item">
+     <img src="{{item.pic.url}}" alt="{{item.pic.name}}">
+      </li>
+    <li class="list-group-item">
+      <img src="{{item.pattern.url}}" alt="{{item.pattern.name}}">
+    </li>
+   <p class = 'amount'>
+ <h3 class="count"> Количество: {{amount}} </h3>
+
+
+{{/each}}
+
+<p>Ваш E-mail : {{user.email}}</p>
+
+<form class = "ordermodal" action="/box/order" method="POST">
+  <p> Мобильный телефон для подтверждения заказа: 
+  <input type="phone"  name="phone" placeholder="Phone">
+  </p>
+ <p> Комментарий к заказу: 
+  <input type="text"  name="comment" placeholder="optional field">
+  </p>
+<button  type="submit">Заказать</button>
+</form>

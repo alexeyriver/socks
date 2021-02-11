@@ -45,6 +45,19 @@ router.get('/plus/:id',async (req,res)=>{
     res.json({amount:newBox[0].amount,  id:req.params.id})
   })
 
+router.get('/order', async(req,res)=>{
+  let user = await  User.findOne({  email: req.session.email}).populate({path:'box',populate:{path:'item'}})
+console.log(user);
+res.render('order',{user})
+})
 
+router.post('/order', async(req,res)=>{
+  let user = await  User.findOne({  email: req.session.email}).populate({path:'box',populate:{path:'item'}})
+// отправить инфу на e-mail 
+  user.box =[]
+await user.save()
+  console.log(req.body)
+  res.render('submitorder')
+})
 
 module.exports= router
