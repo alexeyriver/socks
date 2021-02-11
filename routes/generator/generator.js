@@ -4,10 +4,12 @@ const BaseSock = require('../../models/basesocks')
 const User = require('../../models/users')
 const Socks = require('../../models/socks')
 
-
 router.get('/', async (req, res) => {
-  const base = await BaseSock.find()  
-  res.render('generator', base[0])
+  if (req.session.name) {
+    const base = await BaseSock.find()
+    res.render('generator', base[0])
+  }
+  else res.redirect('/login/signin')
 })
 
 router.post('/', async (req, res) => {
@@ -23,7 +25,7 @@ router.post('/', async (req, res) => {
 })
 
 router.post('/img', async (req, res) => {
- console.log( req.session.idi,'<<<<<<<<<<<<<<<<<<<<<<<<')
+  console.log(req.session.idi, '<<<<<<<<<<<<<<<<<<<<<<<<')
   let user = await User.find({ email: req.session.email })
   let sock = await Socks.findById(req.session.idi)
   console.log(sock);
@@ -44,7 +46,6 @@ router.post('/pattern', async (req, res) => {
   let sock = await Socks.findById(req.session.idi)
   const base = await BaseSock.find()
   let pattern = base[0].pattern;
-  console.log(pattern);
   let target = pattern.filter((el) => { return el.name == req.body.patternName })
   sock.pattern = { name: target[0].name, url: target[0].url }
   await sock.save()
@@ -57,7 +58,6 @@ router.post('/favourite', async (req, res) => {
   let sock = await Socks.findById(req.session.idi)
   user[0].favourites.push(sock)
   await user[0].save()
-  const base = await BaseSock.find()
   res.redirect('http://localhost:3000/generator')
 })
 
@@ -67,16 +67,14 @@ router.post('/box', async (req, res) => {
   let sock = await Socks.findById(req.session.idi)
   user[0].box.push({ item: sock, amount: 1 })
   await user[0].save()
-  const base = await BaseSock.find()
   res.redirect('http://localhost:3000/generator')
 })
 
 router.post('/skip', async (req, res) => {
-  console.log(req.session.idi ,'<<<<<<<<')
-   await Socks.findOneAndDelete({ _id: req.session.idi })
+  console.log(req.session.idi, '<<<<<<<<')
+  await Socks.findOneAndDelete({ _id: req.session.idi })
   res.redirect('http://localhost:3000/generator')
 })
-
 
 
 module.exports = router
