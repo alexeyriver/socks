@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const User = require('../../models/users')
 const Socks = require('../../models/socks')
+const mail = require('../../middleware/mail')
 
 router.get('/', async (req,res)=>{
   let user = await  User.findOne({ email: req.session.email }).populate({path:'box',populate:{path:'item'}})
@@ -45,6 +46,36 @@ router.get('/plus/:id',async (req,res)=>{
     res.json({amount:newBox[0].amount,  id:req.params.id})
   })
 
+router.get('/order', async(req,res)=>{
+  let user = await  User.findOne({  email: req.session.email}).populate({path:'box',populate:{path:'item'}})
+console.log(user);
+res.render('order',{user})
+})
 
+router.post('/order', async(req,res)=>{
+  let user = await  User.findOne({  email: req.session.email}).populate({path:'box',populate:{path:'item'}})
+// отправить инфу на e-mail 
+let textbox = user.box.map((el)=>{
+ let item= el.item.pic ;
+ let pattern = el.item.pattern;
+ let color = el.item.color;
+let amount = el.amount
+let final = `
+Item: ${item}, Pattern: ${pattern} , Color: ${color} , Amount: ${amount} `
+return final
+})
+
+let value = `<p> Покупатель - ${user.name} , </p>
+           <p> E-mail: ${user.email}, </p>
+           Phone:  ${req.body.phone},
+           Comment: ${req.body.comment},
+           Корзина: ${textbox}`                /// user.box
+mail(value,`<h2>${value}</h2>`)
+
+  user.box =[]
+await user.save()
+  console.log(req.body)
+  res.render('submitorder')
+})
 
 module.exports= router

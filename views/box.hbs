@@ -21,4 +21,14 @@
     {{/each}}
 
 
-<script src="/js/box.js"></script>
+
+ {{#if box}}
+<form action="http://localhost:3000/box/order"><button class='order'  type="click">Оформить заказ</button> </form>
+{{else}}
+<h2>В вашей корзине пусто. Сделаем дизайн носков?   </h2> <form action="http://localhost:3000/generator"><button  type="click">Сгенерировать Носки!</button></form> 
+{{/if}}
+
+
+
+
+<script defer src="/js/box.js"></script>
