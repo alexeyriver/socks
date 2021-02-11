@@ -1,12 +1,15 @@
 <h2>Its a index handlebars</h2>
 
- {{#if userName}}
-Добро пожаловать, {{userName}}
+<div class="container">
+{{#if userName}}
+<h3>Добро пожаловать, {{userName}}</h3>
 
 <form action="/generator">
-<button type="submit">Создать носки</button>
+<button class="waves-effect waves-light btn-small" type="submit">Создать носки</button>
 </form>
 
 
 {{/if}}
+</div>
+
 

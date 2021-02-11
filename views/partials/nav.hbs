@@ -1,11 +1,16 @@
 <nav>
+  <div class="nav-wrapper">
     {{#if login}}
-    <a href="http://localhost:3000/login/logout">LogOut</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="http://localhost:3000/login/logout">LogOut</a></li>
+      <li><a href="http://localhost:3000/login/favourites"><i class="large material-icons">favorite_border</i></a></li>
+      <li><a href="http://localhost:3000/login/box"><i class="large material-icons">shopping_cart</i></a></li>
+    </ul>
     {{else}}
-    <a href="http://localhost:3000/login/signin">SignIn</a>
-    <a href="http://localhost:3000/login/signUp">SignUp</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="http://localhost:3000/login/signin">SignIn</a></li>
+      <li><a href="http://localhost:3000/login/signUp">SignUp</a></li>
+    </ul>
     {{/if}}
-    <a href="/cookie">Cookie</a>
+  </div>
 </nav>
-<script defer src=""></script>
-
