@@ -4,10 +4,12 @@ const BaseSock = require('../../models/basesocks')
 const User = require('../../models/users')
 const Socks = require('../../models/socks')
 
-
 router.get('/', async (req, res) => {
-  const base = await BaseSock.find()  
-  res.render('generator', base[0])
+  if (req.session.name) {
+    const base = await BaseSock.find()
+    res.render('generator', base[0])
+  }
+  else res.redirect('/login/signin')
 })
 
 router.post('/', async (req, res) => {
@@ -23,7 +25,7 @@ router.post('/', async (req, res) => {
 })
 
 router.post('/img', async (req, res) => {
- console.log( req.session.idi,'<<<<<<<<<<<<<<<<<<<<<<<<')
+  console.log(req.session.idi, '<<<<<<<<<<<<<<<<<<<<<<<<')
   let user = await User.find({ email: req.session.email })
   let sock = await Socks.findById(req.session.idi)
   console.log(sock);
@@ -69,11 +71,10 @@ router.post('/box', async (req, res) => {
 })
 
 router.post('/skip', async (req, res) => {
-  console.log(req.session.idi ,'<<<<<<<<')
-   await Socks.findOneAndDelete({ _id: req.session.idi })
+  console.log(req.session.idi, '<<<<<<<<')
+  await Socks.findOneAndDelete({ _id: req.session.idi })
   res.redirect('http://localhost:3000/generator')
 })
-
 
 
 module.exports = router
