@@ -1,30 +1,22 @@
-{{!-- <div class="container">
-    <ul>
-        {{#each favourites}}
-        <li>Color</li>
-        <li>Pic</li>
-        <li>Pattern</li>
-        <a href="{{this._id}}">Поделиться ссылкой</a>
-        {{/each}}
-    </ul>
-</div> --}}
 
-<h2>favourites</h2>
+
+<h2>Сгенерированные носки в избранном:</h2>
  
-<div class="card" style="width: 18rem;">
-  <ul class="list-group list-group-flush">
+
    {{#each fav }}
-
-    <li class="list-group-item">{{color}} </li>
-    <li class="list-group-item">
-     <img src="{{pic.url}}" alt="{{pic.name}}">
-      </li>
-    <li class="list-group-item">
-      <img src="{{pattern.url}}" alt="{{pattern.name}}">
-    </li>
-    <a href="/favourites/{{_id}}">Поделиться ссылкой</a>
-  
+<div class="flex">
+    <p class="{{color}}"> {{color}} </p>
+    <p>
+     <img height="200px" width="200px" src="{{pic.url}}" alt="{{pic.name}}">
+     </p>
+    <p>
+      <img height="200px" width="200px" src="{{pattern.url}}" alt="{{pattern.name}}">
+    </p>
+    
+  </div>
+  <a href="/favourites/{{_id}}">Поделиться ссылкой</a>
+  <a class = 'tobox' href="/favourites/inbox/{{_id}}" >Добавить в корзину</a>
     {{/each}}
-  </ul>
-</div>
 
+
+<script src="js/favourite.js"></script>

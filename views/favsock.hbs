@@ -1,10 +1,25 @@
 
 
+<div class=" flex">
+    <p class={{sock.color}}>{{sock.color}} </p>
+   
+<p>
+     <img height="200px" width="200px" src="{{sock.pic.url}}" alt="{{sock.pic.name}}">
+    </p> 
+  <p>
+      <img height="200px" width="200px" src="{{sock.pattern.url}}" alt="{{sock.pattern.name}}">
+    </p>
+</div>
 
- <li class="list-group-item">{{sock.color}} </li>
-    <li class="list-group-item">
-     <img src="{{sock.pic.url}}" alt="{{sock.pic.name}}">
-      </li>
-    <li class="list-group-item">
-      <img src="{{sock.pattern.url}}" alt="{{sock.pattern.name}}">
-    </li>
+
+{{#if login}}
+    <a href="http://localhost:3000/">Перейти на главную</a>
+    {{else}}
+    <h3>
+      <p> Не зарегистрированы?</p>
+      <p>Зарегистрируйтесь, чтобы создать свой дизайн носков</p>
+       <a href="http://localhost:3000/login/signUp">Регистрация</a>
+      </h3>
+  
+    {{/if}}
+

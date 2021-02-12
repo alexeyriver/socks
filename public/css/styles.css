@@ -1,3 +1,42 @@
-div{
-color: blueviolet;
+.flex{
+  color: blueviolet;
+  display: flex;
+
+}
+
+.white{
+color:whitesmoke ;
+  height:200px;
+  width:200px;
+  background: whitesmoke;
+  box-sizing: border-box;
+}
+
+.red{
+  color:red ;
+  height:200px;
+  width:200px;
+  background: red
+}
+
+.blue{
+  color:blue ;
+  height:200px;
+  width:200px;
+  background: blue
+}
+
+.black{
+  color:black ;
+  height:200px;
+  width:200px;
+  background: black
+}
+
+h3{
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
 }
