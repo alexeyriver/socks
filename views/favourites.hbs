@@ -1,6 +1,6 @@
 
 
-<h2>Сгенерированные носки в избранном:</h2>
+<h3>Сгенерированные носки в избранном:</h3>
  
 
    {{#each fav }}
@@ -12,10 +12,17 @@
     <p>
       <img height="200px" width="200px" src="{{pattern.url}}" alt="{{pattern.name}}">
     </p>
-    
+   
   </div>
-  <a href="/favourites/{{_id}}">Поделиться ссылкой</a>
-  <a class = 'tobox' href="/favourites/inbox/{{_id}}" >Добавить в корзину</a>
+<div class="container">
+  <form action="/favourites/{{_id}}"><button class = 'tobox btns ' name="/favourites/{{_id}}" >Поделиться ссылкой</button>
+  </form>
+   
+    <button class = 'box tobox btns' name="/favourites/inbox/{{_id}}" >Добавить в корзину</button>
+  {{!-- <a href="/favourites/{{_id}}">Поделиться ссылкой</a> --}}
+  {{!-- <a class = 'tobox' href="/favourites/inbox/{{_id}}" >Добавить в корзину</a> --}}
+  </div>
+
     {{/each}}
 
 

@@ -14,21 +14,24 @@
     </p>
 </div>
    <p class = 'amount'>
-<button class="less"  id ='{{_id}}-' type="click">-</button>
- <h2 class="count"> {{amount}} Количество</h2>
-<button class="plus" id ='{{_id}}+' type="click">+</button>
 
-<button class='delete' id ='{{_id}}' type="click">Удалить</button>
-</p> 
+<div class = 'flex'>
+
+<button class="less btns"  id ='{{_id}}-' type="click">-</button>
+ <h2 class="count"> {{amount}} Количество</h2>
+<button class="plus btns" id ='{{_id}}+' type="click">+</button>
+
+<button class='delete btns' id ='{{_id}}' type="click">Удалить</button>
+</p> </div>
 </div>
     {{/each}}
 
 
 
  {{#if box}}
-<form action="http://localhost:3000/box/order"><button class='order'  type="click">Оформить заказ</button> </form>
+<form action="http://localhost:3000/box/order"><button class='order btns'  type="click">Оформить заказ</button> </form>
 {{else}}
-<h2>В вашей корзине пусто. Сделаем дизайн носков?   </h2> <form action="http://localhost:3000/generator"><button  type="click">Сгенерировать Носки!</button></form> 
+<h2>В вашей корзине пусто. Сделаем дизайн носков?   </h2> <form action="http://localhost:3000/generator"><button class="btns"  type="click">Сгенерировать Носки!</button></form> 
 {{/if}}
 
 

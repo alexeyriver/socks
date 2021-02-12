@@ -1,4 +1,4 @@
-<h1>nav panel
+{{!-- <h1>nav panel
   тут должен быть Signin Signup favourites box 
 </h1>
 <nav>
@@ -9,4 +9,25 @@
     <a href="http://localhost:3000/login/signUp">SignUp</a>
     {{/if}}
     <a href="/cookie">Cookie</a>
-</nav>
+</nav> --}}
+
+
+
+<nav>
+    {{#if login}}
+   
+      <ul>
+        <li><a href="http://localhost:3000/generator">Генератор</a></li>
+        <li><a href="http://localhost:3000/login/logout">Выход</a></li>
+        <li><a href="http://localhost:3000/favourites">Избранное</a></li>
+        <li><a href="http://localhost:3000/box">Корзина</a></li>
+
+      </ul>
+    {{else}}
+      <ul>
+        <li><a href="http://localhost:3000/login/signin">Войти</a></li>
+        <li><a href="http://localhost:3000/login/signUp">Регистрация</a></li>
+      </ul>
+   
+    {{/if}}
+ </nav>

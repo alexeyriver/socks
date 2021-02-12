@@ -26,7 +26,7 @@ console.log(name,email,password,action,method)
       const resphbs = await fetch('/template/login/invaliduseremail.hbs');
       const hbs = await resphbs.text();
       const template = Handlebars.compile(hbs);
-      let div = document.querySelector('div')
+      let div = document.querySelector('.wrapper-auth')
       // div.appendChild(template())
       let temp = template()
       if (div.innerHTML.match(temp)==null)
