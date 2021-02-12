@@ -2,17 +2,20 @@
 
 
  {{#each box }}
- <div class="{{_id}}">
-    <li class="list-group-item">{{item.color}} </li>
-    <li class="list-group-item">
-     <img src="{{item.pic.url}}" alt="{{item.pic.name}}">
-      </li>
-    <li class="list-group-item">
-      <img src="{{item.pattern.url}}" alt="{{item.pattern.name}}">
-    </li>
+ <div class="{{_id}} ">
+   <div class=" flex">
+    <p class={{item.color}}>{{item.color}} </p>
+   
+<p>
+     <img height="200px" width="200px" src="{{item.pic.url}}" alt="{{item.pic.name}}">
+    </p> 
+  <p>
+      <img height="200px" width="200px" src="{{item.pattern.url}}" alt="{{item.pattern.name}}">
+    </p>
+</div>
    <p class = 'amount'>
 <button class="less"  id ='{{_id}}-' type="click">-</button>
- <h3 class="count"> {{amount}} Количество</h3>
+ <h2 class="count"> {{amount}} Количество</h2>
 <button class="plus" id ='{{_id}}+' type="click">+</button>
 
 <button class='delete' id ='{{_id}}' type="click">Удалить</button>

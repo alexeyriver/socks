@@ -5,6 +5,7 @@ let div = document.querySelector('div')
 
 parag.forEach((el) => {
   el.addEventListener('click', async (e) => {
+    console.log(e.target)
     console.log(e.target.innerText)   /// цвет по которому кликаем 
     const response = await fetch('http://localhost:3000/generator', {
       method: 'POST',

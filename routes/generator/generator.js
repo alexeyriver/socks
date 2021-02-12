@@ -58,7 +58,7 @@ router.post('/favourite', async (req, res) => {
   let sock = await Socks.findById(req.session.idi)
   user[0].favourites.push(sock)
   await user[0].save()
-  res.redirect('http://localhost:3000/generator')
+  res.redirect('http://localhost:3000/favourites')
 })
 
 router.post('/box', async (req, res) => {
@@ -67,7 +67,7 @@ router.post('/box', async (req, res) => {
   let sock = await Socks.findById(req.session.idi)
   user[0].box.push({ item: sock, amount: 1 })
   await user[0].save()
-  res.redirect('http://localhost:3000/generator')
+  res.redirect('http://localhost:3000/box')
 })
 
 router.post('/skip', async (req, res) => {
