@@ -1,7 +1,7 @@
 .flex{
   color: blueviolet;
   display: flex;
-
+  justify-content: center;
 }
 
 .white{
@@ -40,3 +40,240 @@ h3{
 a{
   text-decoration: none;
 }
+
+/* added */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  
+  height: 100vh;
+  width: 100%;
+  /* display: flex;
+  justify-content: space-between;
+  flex-direction: column; */
+}
+.container {
+  display: flex;
+  font-display: column;
+  align-items: center;
+  min-width: 1400px;
+  position: relative;
+ justify-content: center;
+}
+/* Header container */
+/* .header-container {
+  min-width: 1200px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+.container-head {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  margin: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid red; */
+/* } */
+nav {
+  width: inherit;
+  height: 100px;
+  background: #318bcc;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 50px;
+  margin-bottom: 50px;
+}
+nav ul{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+}
+nav ul li {
+  margin: 5px;
+}
+nav ul a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+}
+input[type=text], input[type=password], input[type=email], input[type=phone] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=email]:focus, input[type=password]:focus, input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+  margin-top: 10px;
+}
+.reg-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+/* Login */
+.wrapper-login {
+  padding: 16px;
+  background-color: #fff;
+  width: 30%;
+  margin: 0 auto;
+}
+.container-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+.registerbtn {
+  background-color: #318bcc;
+  color: #fff;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  text-decoration: none;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 12px;
+}
+.registerbtn:hover {
+  background-color: green;
+}
+
+button:active, button:focus {
+outline: none;
+}
+/* Registration */
+.wrapper-auth {
+  padding: 16px;
+  background-color: #fff;
+  width: 30%;
+  margin: 0 auto;
+}
+/* footer */
+footer {
+  height: 20px;
+  width: 100%;
+  background: #318bcc;
+  bottom: 0;
+  position: fixed;
+  margin-top: 100px;
+}
+footer h1 {
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 15px 30px;
+}
+
+.btns {
+  background-color: #318bcc;
+  color: #fff;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 70%;
+  opacity: 0.9;
+  text-decoration: none;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 12px;
+}
+
+.btns:hover {
+  background-color: green;
+}
+
+.tobox {
+  background-color: #318bcc;
+  color: #fff;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  opacity: 0.9;
+  text-decoration: none;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 12px;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+.order_flex {
+  display: flex;
+  justify-content: center;
+}
+
+.flex_box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.order, .delete{
+  width: 250px;
+}
+
+.delete {
+  margin-bottom: 40px;
+}
+
+.order {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.plus, .less {
+  width: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 40px;
+}
+
+h2.count {
+padding: 20px;
+}
+
+div.container {
+  margin-bottom: 70px;
+}
+
+.title-fav {
+  margin-bottom: 20px;
+}
+
+.text-link {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.text-order {
+  font-size: 24px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.text-ord {
+  font-size: 24px;
+  margin-top: 100px;
+  margin-bottom: 70px;
+}
+

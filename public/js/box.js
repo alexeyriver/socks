@@ -5,7 +5,7 @@ let btnplus = document.querySelectorAll('.plus')
 btn.forEach((el) => {
   el.addEventListener('click', async (e) => {
     const id = e.target.id
-    console.log(e.target.parentElement.parentElement)
+   
     const feta = await fetch(`/box/${id}`, {
       method: 'DELETE',
       headers: {
@@ -35,7 +35,7 @@ btnless.forEach((el) => {
     let text = div[0].querySelector('.count')
     console.log(text.innerText)
     console.dir(e.target.parentElement)
-    text.innerText = `${result.amount} Количество`
+    text.innerText = `${result.amount} ШТ`
     if (result.status == 'delete') {
       // let div = document.querySelector(`.${result.id}`)
       div[0].remove()
@@ -57,6 +57,6 @@ btnplus.forEach((el) => {
     let text = div[0].querySelector('.count')
     console.log(text.innerText)
     console.dir(e.target.parentElement)
-    text.innerText = `${result.amount} Количество`
+    text.innerText = `${result.amount} ШТ`
   })
 })
