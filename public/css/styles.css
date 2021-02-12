@@ -2,7 +2,6 @@
   color: blueviolet;
   display: flex;
   justify-content: center;
-  margin-top: 50px;
 }
 
 .white{
@@ -106,7 +105,7 @@ nav ul a {
   text-transform: uppercase;
   color: #fff;
 }
-input[type=text], input[type=password], input[type=email] {
+input[type=text], input[type=password], input[type=email], input[type=phone] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -154,6 +153,10 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus {
 .registerbtn:hover {
   background-color: green;
 }
+
+button:active, button:focus {
+outline: none;
+}
 /* Registration */
 .wrapper-auth {
   padding: 16px;
@@ -168,6 +171,7 @@ footer {
   background: #318bcc;
   bottom: 0;
   position: fixed;
+  margin-top: 100px;
 }
 footer h1 {
   text-align: left;
@@ -192,6 +196,10 @@ footer h1 {
   border-radius: 12px;
 }
 
+.btns:hover {
+  background-color: green;
+}
+
 .tobox {
   background-color: #318bcc;
   color: #fff;
@@ -208,3 +216,64 @@ footer h1 {
   margin-right: 100px;
   margin-left: 100px;
 }
+
+.order_flex {
+  display: flex;
+  justify-content: center;
+}
+
+.flex_box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.order, .delete{
+  width: 250px;
+}
+
+.delete {
+  margin-bottom: 40px;
+}
+
+.order {
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.plus, .less {
+  width: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 40px;
+}
+
+h2.count {
+padding: 20px;
+}
+
+div.container {
+  margin-bottom: 70px;
+}
+
+.title-fav {
+  margin-bottom: 20px;
+}
+
+.text-link {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.text-order {
+  font-size: 24px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.text-ord {
+  font-size: 24px;
+  margin-top: 100px;
+  margin-bottom: 70px;
+}
+

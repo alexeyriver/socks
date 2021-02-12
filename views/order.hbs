@@ -1,6 +1,6 @@
 
 
-<p>{{user.name}} , Ваш Заказ:</p>
+<p class="text-order">{{user.name}} , Ваш Заказ:</p>
 
 {{#each user.box }}
 <div class="{{_id}} ">
@@ -19,14 +19,17 @@
 
 {{/each}}
 
-<p>Ваш E-mail : {{user.email}}</p>
+<p class="text-order">Ваш E-mail : {{user.email}}</p>
 
 <form class = "ordermodal" action="/box/order" method="POST">
-  <p> Мобильный телефон для подтверждения заказа: 
+  <p class="text-order"> Мобильный телефон для подтверждения заказа: 
   <input type="phone"  name="phone" placeholder="Phone">
   </p>
- <p> Комментарий к заказу: 
-  <input type="text"  name="comment" placeholder="optional field">
+ <p class="text-order"> Комментарий к заказу: 
+  <input type="text"  name="comment" placeholder="Your comment...">
   </p>
-<button  type="submit">Заказать</button>
+  <div class="flex">
+
+<button class= 'order btns' type="submit">Заказать</button>
+  </div>
 </form>

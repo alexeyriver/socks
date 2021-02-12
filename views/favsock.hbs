@@ -13,12 +13,23 @@
 
 
 {{#if login}}
-    <a href="http://localhost:3000/">Перейти на главную</a>
+<div class="flex">
+<form action="http://localhost:3000/">
+    <button class = 'tobox btns' href="http://localhost:3000/">Перейти на главную</button>
+</form>
+
+</div>
     {{else}}
     <h3>
+      <div class="text-link">
       <p> Не зарегистрированы?</p>
       <p>Зарегистрируйтесь, чтобы создать свой дизайн носков</p>
-       <a href="http://localhost:3000/login/signUp">Регистрация</a>
+
+      </div>
+      <div class="flex">
+        <form action="http://localhost:3000/login/signUp">
+          <button class = 'tobox btns' href="http://localhost:3000/">Регистрация</button>
+        </form>
       </h3>
   
     {{/if}}

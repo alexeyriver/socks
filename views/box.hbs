@@ -18,7 +18,7 @@
 <div class = 'flex'>
 
 <button class="less btns"  id ='{{_id}}-' type="click">-</button>
- <h2 class="count"> {{amount}} Количество</h2>
+ <h2 class="count"> {{amount}} ШТ</h2>
 <button class="plus btns" id ='{{_id}}+' type="click">+</button>
 
 <button class='delete btns' id ='{{_id}}' type="click">Удалить</button>
@@ -29,9 +29,16 @@
 
 
  {{#if box}}
+ <div class="order_flex">
+
 <form action="http://localhost:3000/box/order"><button class='order btns'  type="click">Оформить заказ</button> </form>
+ </div>
 {{else}}
-<h2>В вашей корзине пусто. Сделаем дизайн носков?   </h2> <form action="http://localhost:3000/generator"><button class="btns"  type="click">Сгенерировать Носки!</button></form> 
+<div class="flex_box">
+<h2>В вашей корзине пусто. Сделаем дизайн носков?</h2>
+<form action="http://localhost:3000/generator"><button class="btns"  type="click">Сгенерировать Носки!</button></form> 
+
+</div>
 {{/if}}
 
 
