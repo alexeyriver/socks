@@ -61,18 +61,18 @@ router.post('/order', async (req, res) => {
     let color = el.item.color;
     let amount = el.amount
     let final = `
-<p> Item: ${item} </p> ,   <p> Pattern: ${pattern} </p> ,  <p> Color: ${color} </p> ,  <p> Amount: ${amount} </p> `
+    <p> Item: ${item} </p> ,   <p> Pattern: ${pattern} </p> ,  <p> Color: ${color} </p> ,  <p> Amount: ${amount} </p> `;
     return final
   })
   let value = `<p> Покупатель - ${user.name} , </p>
            <p> E-mail: ${user.email}, </p>
            <p>   Phone:  ${req.body.phone}, </p>
            <p>   Comment: ${req.body.comment}, </p>
-           <p>   Корзина: ${textbox}  </p>`                /// user.box
-  mail(req.session.email, `<h2>${value}</h2>`)   // .then(console.log('email-send')).catch(console.log('email-not send'))
+           <div>   Корзина: ${textbox}  </div> `     ;           
+  mail(req.session.email, `<h2>${value}</h2>`) 
+  console.log(req.session.email, `<h2>${value}</h2>`)
   user.box = []
   await user.save()
-  console.log(req.body)
   res.render('submitorder')
 })
 
